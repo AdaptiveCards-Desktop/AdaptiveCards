@@ -398,6 +398,7 @@ namespace RendererQml
         std::string newId = value;
 
         transform(newId.begin(), newId.end(), newId.begin(), ::tolower);
+        newId = ConvertToValidID(newId);
         return newId;
     }
 
@@ -520,4 +521,83 @@ namespace RendererQml
 		text = Replace(text, "\\", "&#92;");
 		return text;
 	}
+
+	const bool Utils::isValidDate(const std::string& date)
+	{
+		// yyyy-mm-dd format check
+		try
+		{
+			std::vector<std::string> date_split = Utils::splitString(date, '-');
+			if (date_split.size() < 3)
+			{
+				return false;
+			}
+			//Year must have 4 characters
+			if (date_split[0].size() < 4)
+			{
+				return false;
+			}
+			int year = stoi(date_split[0]);
+			int month = stoi(date_split[1]);
+			int day = stoi(date_split[2]);
+
+			if (month < 1 || month>12)
+			{
+				return false;
+			}
+
+			if (day < 1 || day>31)
+			{
+				return false;
+			}
+
+			//Handle February
+			if (month == 2)
+			{
+				//If leap year
+				if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
+				{
+					return day <= 29;
+				}
+				else
+				{
+					return day <= 28;
+				}
+			}
+
+			//Handle months having 30 days
+			if (month == 4 || month == 6 || month == 9 || month == 11)
+			{
+				return day <= 30;
+			}
+
+			return true;
+		}
+		catch (...)
+		{
+			return false;
+		}
+	}
+
+    const std::string Utils::ConvertToValidID(const std::string& id)
+    {
+        //TODO: Handle non alpha numeric characters
+
+        //Add underscore to take care of starting character
+        return Formatter() << "_" << id;
+    }
+
+    bool Utils::hasNonAlphaNumeric(const std::string& id)
+    {
+        //QML does not allow special characters except underscore
+        //check if non alpha numeric character other than underscore exists
+        for (auto& character : id)
+        {
+            if (!std::isalnum(character) && character != '_')
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

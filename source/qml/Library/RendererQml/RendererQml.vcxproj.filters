@@ -95,8 +95,52 @@
     <ClInclude Include="Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ImageDataURI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CardQmlElements\ActionButtonColumn.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CardQmlElements\ActionButtonRow.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CardQmlElements\ButtonCheckBox.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CardQmlElements\ButtonRadio.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CardQmlElements\DateInput.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CardQmlElements\DropDownMenu.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CardQmlElements\HeightWidthFunctions.js">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CardQmlElements\NumberInput.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CardQmlElements\qmldir">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CardQmlElements\QmlHelperFunctions.js">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CardQmlElements\TextBlock.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CardQmlElements\TextInputMulti.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CardQmlElements\TextInputSingle.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CardQmlElements\TimeInput_12hour.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CardQmlElements\TimeInput_24hour.qml">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

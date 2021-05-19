@@ -20,6 +20,11 @@ int main(int argc, char* argv[])
     QQuickView view;
     QQmlContext* context = view.engine()->rootContext();
 
+    std::string SolutionDir = SOLUTION_DIR;
+    SolutionDir = Utils::Replace(SolutionDir, "\\", "/");
+    std::string QmlFolderpath = Formatter() << SolutionDir << "Library/RendererQml/";
+    view.engine()->addImportPath(QString::fromStdString(QmlFolderpath));
+
     SampleCardList cardList;
     SampleCardModel model;
     model.setList(&cardList);
